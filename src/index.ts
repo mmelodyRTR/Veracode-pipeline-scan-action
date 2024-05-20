@@ -121,7 +121,7 @@ parameters['fail_build'] = fail_build
 
 
 
-async function run (parameters:any){
+async function run (parameters:any): Promise<void> {
     downloadJar()
     let scanCommandValue = await checkParameters(parameters)
 
@@ -243,8 +243,13 @@ async function run (parameters:any){
         if ( failBuild >= 1 ){
             core.info('There are flaws found that require the build to fail')
             core.setFailed(scanCommandOutput)
+            process.exit(1)
+        } else {
+            process.exit(0)
         }
     }
+    core.info('Finishing process')
+    process.exit(0)
 
 }
 
