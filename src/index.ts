@@ -249,3 +249,10 @@ async function run (parameters:any){
 }
 
 run(parameters)
+.catch(err => {
+    core.setFailed(err.message)
+    process.exit(1)
+  })
+  .then(() => {
+    process.exit(0)
+  })
