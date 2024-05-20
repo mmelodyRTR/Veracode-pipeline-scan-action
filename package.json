@@ -4,7 +4,8 @@
   "description": "Veracode Pipeline Scan Action",
   "main": "./dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "ncc build ./src/index.ts  "
   },
   "author": "Veracode",
   "license": "MIT",
@@ -13,6 +14,7 @@
     "@actions/artifact-v2": "npm:@actions/artifact@^2.1.4",
     "@actions/core": "^1.10.0",
     "@actions/github": "^5.1.1",
+    "@vercel/ncc": "^0.38.1",
     "axios": "^1.6.0",
     "sjcl": "^1.0.8",
     "typescript": "^4.7.4"
