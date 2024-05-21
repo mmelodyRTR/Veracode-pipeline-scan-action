@@ -30,7 +30,7 @@ export function downloadJar ()  {
     }
 }
 
-export function runScan (scanCommand:any,parameters:any){
+export async function runScan (scanCommand:any,parameters:any){
     
 
     if (parameters.debug == 1 ){
@@ -44,7 +44,9 @@ export function runScan (scanCommand:any,parameters:any){
 
     let commandOutput = ''
     try {
-        execSync(scanCommand)
+        core.info('prior to execSync(scanCommand)')
+        await execSync(scanCommand);
+        core.info('after to execSync(scanCommand)')
     } catch (ex:any){
         commandOutput = ex.stdout.toString()
     }
