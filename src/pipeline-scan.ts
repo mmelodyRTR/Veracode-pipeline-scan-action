@@ -44,7 +44,7 @@ export async function runScan (scanCommand:any,parameters:any){
 
     let commandOutput = ''
     try {
-        core.info('prior to execSync(scanCommand)')
+        core.info('prior to execSync(scanCommand) [test]')
         await execSync(scanCommand,{ stdio: 'inherit' });
         core.info('after to execSync(scanCommand)')
     } catch (ex:any){
